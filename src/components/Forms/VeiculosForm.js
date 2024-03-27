@@ -8,7 +8,7 @@ import {
 } from "../../services/veiculoService";
 import SCVButton from '../SCVButton';
 
-export default function VeiculosForm({ isEnvelope, veiculo, handleChange,setVeiculo}){
+export default function VeiculosForm({ veiculo, handleChange}){
   const [ renavamExists, setRenavamExists ] = useState(null);
 
   async function submit(e) {
@@ -28,14 +28,9 @@ export default function VeiculosForm({ isEnvelope, veiculo, handleChange,setVeic
     }
   }
 
-  if(isEnvelope && renavamExists === null) {
-    return (
-      <RenavamSearchInput  handleChange={handleChange} veiculo={veiculo} setVeiculo={setVeiculo} setRenavamExists={setRenavamExists}/>
-    )
-  }
   return (
     <Form onSubmit={submit}>
-    <h3>Cadastrar Envelope</h3>
+    <h3>Cadastrar Veiculo</h3>
     <hr />
 
     <Row>
@@ -185,50 +180,5 @@ export default function VeiculosForm({ isEnvelope, veiculo, handleChange,setVeic
       Veiculo
     </Button>
   </Form>
-  )
-}
-
-function RenavamSearchInput({handleChange,veiculo,setVeiculo,setRenavamExists}){
-  const [ loading, setLoading ] = useState(false);
-
-  function submitSearchRenavam(e){
-    e.preventDefault();
-    if(!veiculo.renavamVeiculo) {
-      return alert("Renavam vazio")
-    };
-    
-    setLoading(true)
-    getVeiculoRenavam(veiculo.renavamVeiculo).then(rVeiculo => {
-      setVeiculo(rVeiculo);
-      setRenavamExists(true);
-    }).catch(e=> {
-      alert(e.message)
-      if(e.status === 404){
-        setRenavamExists(false);
-      }
-    }).finally(()=> setLoading(false))
-  }
-  return (
-    <Form>
-      <h3>Cadastrar Envelope</h3>
-      <hr />
-
-      <Row >
-      <Col xs={1}/>
-      <Col xs={2}>
-        <FormInput
-          label="Renavam"
-          onchange={handleChange}
-          name="renavamVeiculo"
-          values={veiculo}
-          required
-        />
-      </Col>
-      <Col xs={3}>
-        <SCVButton variant="primary" onClick={submitSearchRenavam} loading={loading}>Pesquisar renavam</SCVButton>
-      </Col>
-      </Row>
-
-    </Form>
   )
 }
