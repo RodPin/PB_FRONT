@@ -13,8 +13,8 @@ function Lojas({ history }) {
         <thead>
           <tr>
             <th>Id</th>
-            <th>CNPJ</th>
             <th>Nome da loja</th>
+            <th>CNPJ</th>
           </tr>
         </thead>
         <tbody>
@@ -24,12 +24,12 @@ function Lojas({ history }) {
               onClick={() => history.push(`/editar-loja/${loja.idLoja}`)}
             >
               <td>{loja.idLoja}</td>
-              <td>{loja.cnpjLoja}</td>
               <td>{loja.nomeLoja}</td>
+              <td>{loja.cnpjLoja}</td>
             </tr>
           ))}
         </tbody>
-      </Table>{" "}
+      </Table>
       <hr />
       <Button
         variant="primary"
