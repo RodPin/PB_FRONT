@@ -6,14 +6,16 @@ import ComprasForm from '../components/Forms/ComprasForm';
 
 export default function IncluirEditarVeiculo() {
   const [compra, setCompra] = useState({});
-  const { idVeiculo: idCompra } = useParams();
+  const { idCompra } = useParams();
   const [loading, setLoading] = useState(!!idCompra);
 
   useEffect(() => {
+    console.log('12',idCompra)
     if (idCompra) {
       getCompra(idCompra)
-        .then((rVeiculo) => {
-          setCompra(rVeiculo);
+        .then((rCompra) => {
+          console.log("rCompra",rCompra)
+          setCompra(rCompra);
         })
         .catch((e) => alert(e.message))
         .finally(() => {

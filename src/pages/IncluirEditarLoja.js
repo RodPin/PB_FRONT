@@ -59,6 +59,7 @@ export default function IncluirEditarLoja() {
                 label="Id"
                 onchange={handleChange}
                 name="idLoja"
+                values={loja}
                 disabled
                 required
               />

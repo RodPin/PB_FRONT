@@ -14,7 +14,6 @@ export default function ComprasForm({ compra, handleChange }) {
     e.preventDefault();
     // setLoading(true);
     try {
-      console.log("coimpra",compra)
       if (!compra?.idCompra) {
         await createCompra(compra);
       } else {
@@ -23,7 +22,7 @@ export default function ComprasForm({ compra, handleChange }) {
       alert("compra cadastrada com Sucesso");
     } catch (e) {
         console.log("e",e)
-      alert(e);
+      alert(e.message);
     } finally {
       // setLoading(false);
     }
@@ -40,6 +39,7 @@ export default function ComprasForm({ compra, handleChange }) {
             <FormInput
               label="Id"
               onchange={handleChange}
+              values={compra}
               name="idCompra"
               disabled
               required
@@ -59,6 +59,7 @@ export default function ComprasForm({ compra, handleChange }) {
             name="idVeiculo"
             labelKey="modeloVeiculo"
             onChange={handleChange}
+            value={compra.idVeiculo}
           />
         </Col>
       </Row>
@@ -73,6 +74,7 @@ export default function ComprasForm({ compra, handleChange }) {
             name="idPessoa"
             labelKey="nomePessoa"
             onChange={handleChange}
+            value={compra.idPessoa}
           />
 
           {/* <FormInput label="CNPJ da Loja " name="cnpjLoja" required /> */}
