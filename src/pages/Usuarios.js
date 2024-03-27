@@ -38,9 +38,9 @@ function Usuarios({ history }) {
       <Button
         variant="primary"
         type="submit"
-        onClick={() => history.push("/editar-loja")}
+        onClick={() => history.push("/editar-usuario")}
       >
-        Incluir Nova Loja
+        Incluir Novo Usuario
       </Button>
     </PageLoader>
   );
