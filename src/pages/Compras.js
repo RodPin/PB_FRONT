@@ -13,12 +13,14 @@ function Compras({ history }) {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Veiculo</th>
             <th>Pessoa</th>
-            <th>Valor</th>
+            <th>Veiculo</th>
             <th>Cor</th>
+            <th>Valor</th>
           </tr>
         </thead>
+
+        {console.log("compras",compras)}
         <tbody>
           {compras?.map((compra) => (
             <tr
@@ -27,11 +29,12 @@ function Compras({ history }) {
                 history.push(`/editar-compra/${compra.idCompra}`)
               }
             >
+              {console.log("compra",compra)}
               <td>{compra.idCompra}</td>
-              <td>{compra.veiculo?.modeloVeiculo}</td>
               <td>{compra.pessoa?.nomePessoa}</td>
-              <td>{compra.valor}</td>
+              <td>{compra.veiculo?.modeloVeiculo}</td>
               <td>{compra.veiculo?.corVeiculo}</td>
+              <td>{compra.valor}</td>
             </tr>
           ))}
         </tbody>
