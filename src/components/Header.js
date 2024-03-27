@@ -6,14 +6,17 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import useQueryAuth from "../hooks/useQuery/useQueryAuth";
+import useQueryAuth, { invalidateUseQueryAuth } from "../hooks/useQuery/useQueryAuth";
 import { clearLocalStorage } from "../localstorage";
+import { useQueryClient } from "react-query";
 
 function Header() {
   const { data: usuario } = useQueryAuth();
+  const queryClient = useQueryClient();
   const history = useHistory();
   function handleLogout() {
     clearLocalStorage();
+    queryClient.invalidateQueries("auth");
     history.push("/");
   }
   let isAdmin = usuario && usuario.nivelUsuario === "M" ? true : false;
