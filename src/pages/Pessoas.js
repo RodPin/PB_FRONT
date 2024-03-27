@@ -15,6 +15,8 @@ function Pessoas({ history }) {
             <th>Id</th>
             <th>CPF/CNPJ</th>
             <th>Nome</th>
+            <th>Email</th>
+            <th>Estado</th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +28,8 @@ function Pessoas({ history }) {
               <td>{pessoa.idPessoa}</td>
               <td>{pessoa.cpfCnpjPessoa}</td>
               <td>{pessoa.nomePessoa}</td>
+              <td>{pessoa.emailPessoa}</td>
+              <td>{pessoa.estadoEnderecoPessoa}</td>
             </tr>
           ))}
         </tbody>
