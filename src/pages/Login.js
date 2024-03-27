@@ -4,7 +4,7 @@ import { getTokenLocalStorage, setTokenLocalStorage } from "../localstorage";
 import logo from "../logo.svg";
 import "../App.css";
 function App({ history }) {
-  const [login, setLogin] = useState("admin@admin.com ");
+  const [login, setLogin] = useState("admin@admin.com");
   const [senha, setSenha] = useState("");
 
   useEffect(() => {
