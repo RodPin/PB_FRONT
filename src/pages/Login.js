@@ -27,11 +27,14 @@ function App({ history }) {
   return (
     <div>
       <form onSubmit={handleLogin}>
+        <div style={{width:'100%',display:'flex',justifyContent:'center',marginTop:102,marginBottom:12}}>
+        <h1>Sistema de Controle de Veiculos</h1>
+        </div>
         <table width="100%" border="0" align="center">
           <tbody>
             <tr height="15">
               <td valign="middle" align="center">
-                <b>LOGIN DE USUARIOS</b>
+                <b>LOGIN</b>
               </td>
             </tr>
           </tbody>
