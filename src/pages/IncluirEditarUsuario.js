@@ -95,22 +95,6 @@ export default function IncluirEditarUsuario() {
         <Row>
           <Col xs={2}>
             <RadioButton
-              label="Inicializador"
-              value="i"
-              onChange={(nivel) => handleChange("nivelUsuario", nivel)}
-              checked={usuario.nivelUsuario === "i"}
-            />
-          </Col>
-          <Col xs={2}>
-            <RadioButton
-              label="Fotografo"
-              value="f"
-              checked={usuario.nivelUsuario === "f"}
-              onChange={(nivel) => handleChange("nivelUsuario", nivel)}
-            />
-          </Col>
-          <Col xs={2}>
-            <RadioButton
               label="Vendedor"
               value="v"
               checked={usuario.nivelUsuario === "v"}
