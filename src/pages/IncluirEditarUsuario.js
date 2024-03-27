@@ -34,7 +34,7 @@ export default function IncluirEditarUsuario() {
     } catch (e) {
       alert(e?.message);
     } finally {
-      setLoading(true);
+      setLoading(false);
     }
   }
 
