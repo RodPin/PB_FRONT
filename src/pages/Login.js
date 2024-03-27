@@ -4,7 +4,7 @@ import { getTokenLocalStorage, setTokenLocalStorage } from "../localstorage";
 import logo from "../logo.svg";
 import "../App.css";
 function App({ history }) {
-  const [login, setLogin] = useState("gomescafe@hotmail.com");
+  const [login, setLogin] = useState("admin@admin.com ");
   const [senha, setSenha] = useState("");
 
   useEffect(() => {
@@ -17,6 +17,7 @@ function App({ history }) {
     e.preventDefault();
     doLogin(login, senha)
       .then((resposta) => {
+        console.log("resposta",resposta)
         setTokenLocalStorage(resposta.token);
         history.push("/veiculos");
       })
@@ -94,7 +95,6 @@ function App({ history }) {
             <tr>
               <td align="center">
                 <button onClick={handleLogin}>Enviar</button>
-                <img src={logo} className="App-logo" alt="logo" />
               </td>
             </tr>
           </tbody>

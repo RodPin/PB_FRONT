@@ -73,9 +73,14 @@ function Header() {
                 <NavDropdown.Divider />
 
                 {isAdmin ? (
-                  <NavDropdown.Item as={Link} to="/lojas">
-                    Listar Lojas
-                  </NavDropdown.Item>
+                  <>
+                    <NavDropdown.Item as={Link} to="/lojas">
+                      Listar Lojas
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/usuarios">
+                      Listar Usuarios
+                    </NavDropdown.Item>
+                  </>
                 ) : null}
 
                 <NavDropdown.Item as={Link} to="/pessoas">
@@ -84,9 +89,7 @@ function Header() {
                 <NavDropdown.Item as={Link} to="/veiculos">
                   Listar Veiculos
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/usuarios">
-                  Listar Usuarios
-                </NavDropdown.Item>
+
                 <NavDropdown.Item as={Link} to="/compras">
                   Listar Compras
                 </NavDropdown.Item>

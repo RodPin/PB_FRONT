@@ -6,6 +6,7 @@ import Usuarios from "./pages/Usuarios";
 import Pessoas from "./pages/Pessoas";
 import Login from "./pages/Login";
 import Veiculos from "./pages/Veiculos";
+import Compras from "./pages/Compras";
 
 import IncluirEditarLoja from "./pages/IncluirEditarLoja";
 import { getTokenLocalStorage } from "./localstorage";
@@ -15,6 +16,7 @@ import IncluirEditarUsuario from "./pages/IncluirEditarUsuario";
 import IncluirEditarPessoa from "./pages/IncluirEditarPessoa";
 import IncluirEditarVeiculo from "./pages/IncluirEditarVeiculo";
 import IncluirEditarEnvelope from "./pages/IncluirEditarEnvelope";
+import IncluirEditarCompra from "./pages/IncluirEditarCompra";
 
 function routes() {
   return (
@@ -26,6 +28,7 @@ function routes() {
       <PrivateRoute path="/lojas" component={Lojas} />
       <PrivateRoute path="/usuarios" component={Usuarios} />
       <PrivateRoute path="/veiculos" component={Veiculos} />
+      <PrivateRoute path="/compras" component={Compras} />
       <PrivateRoute
         path="/editar-loja/:idLoja?"
         component={IncluirEditarLoja}
@@ -46,6 +49,11 @@ function routes() {
         path="/editar-envelope/:idEnvelope?"
         component={IncluirEditarEnvelope}
       />
+      <PrivateRoute
+        path="/editar-compra/:idCompra?"
+        component={IncluirEditarCompra}
+      />
+      
     </BrowserRouter>
   );
 }
