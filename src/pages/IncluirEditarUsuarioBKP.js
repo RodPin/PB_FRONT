@@ -40,16 +40,7 @@ export default function IncluirEditarUsuario() {
 
         <Row>
           <Col xs={2}>
-            <RadioButton label="Inicializador" />
-          </Col>
-          <Col xs={2}>
-            <RadioButton label="Fotografo" />
-          </Col>
-          <Col xs={2}>
             <RadioButton label="Vendedor" />
-          </Col>
-          <Col xs={2}>
-            <RadioButton label="Documentalista" />
           </Col>
           <Col xs={2}>
             <RadioButton label="Gerente" />
