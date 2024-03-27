@@ -12,8 +12,6 @@ function Usuarios({ history }) {
         <thead>
           <tr>
             <th>Nome Loja</th>
-            <th>Ini Assina</th>
-            <th>Ult Env</th>
             <th>Id Usuario</th>
             <th>Nome Usuario</th>
             <th>Ult Acesso</th>
@@ -26,8 +24,6 @@ function Usuarios({ history }) {
           {usuarios?.map((usuario) => (
             <tr>
               <td>{usuario.loja?.nomeLoja}</td>
-              <td>{usuario.loja?.dtIniAssinaturaLoja}</td>
-              <td>{usuario.loja?.idUltEnvelopeLoja}</td>
               <td>{usuario.idUsuario}</td>
               <td>{usuario.nomeUsuario}</td>
               <td>{usuario.dtUltAcesso}</td>
