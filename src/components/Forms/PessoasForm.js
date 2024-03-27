@@ -235,28 +235,6 @@ if(isEnvelope && cpfCnpjExists === null) {
               </Col>
             </Row>
           </Col>
-          <Col>
-            <Form.Label>
-              <strong>Fax</strong>
-            </Form.Label>
-
-            <Row>
-              <Col xs={2}>
-                <FormInput
-                  name="dddFaxPessoa"
-                  onchange={handleChange}
-                  values={pessoa}
-                />
-              </Col>
-              <Col xs={4}>
-                <FormInput
-                  name="FaxPessoa"
-                  onchange={handleChange}
-                  values={pessoa}
-                />
-              </Col>
-            </Row>
-          </Col>
         </Row>
 
         <hr />

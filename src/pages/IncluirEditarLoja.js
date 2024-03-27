@@ -234,28 +234,6 @@ export default function IncluirEditarLoja() {
               </Col>
             </Row>
           </Col>
-          <Col>
-            <Form.Label>
-              <strong>Fax</strong>
-            </Form.Label>
-
-            <Row>
-              <Col xs={2}>
-                <FormInput
-                  onchange={handleChange}
-                  name="dddFaxLoja"
-                  values={loja}
-                />
-              </Col>
-              <Col xs={4}>
-                <FormInput
-                  onchange={handleChange}
-                  name="FaxLoja"
-                  values={loja}
-                />
-              </Col>
-            </Row>
-          </Col>
         </Row>
         <Row>
           <Col>
