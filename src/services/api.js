@@ -29,10 +29,9 @@ const setupInterceptors = (logout) => {
       // Do something with response error
       let xApiError = error?.response?.data;
       if (xApiError?.status === 401) {
-        console.log("ESPIRADO");
         logout();
 
-        alert("Token expirado");
+        console.log("Token expirado");
       }
       if (xApiError?.status === 403) {
         alert("Usuario nao tem permissao");
