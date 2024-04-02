@@ -6,9 +6,13 @@ import {
   createVeiculo,
 } from "../../services/veiculoService";
 import SCVButton from '../SCVButton';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function VeiculosForm({ veiculo, handleChange}){
   const [ renavamExists, setRenavamExists ] = useState(null);
+
+  const history = useHistory();
+
 
   async function submit(e) {
     e.preventDefault();
@@ -19,7 +23,8 @@ export default function VeiculosForm({ veiculo, handleChange}){
       } else {
         await editVeiculo(veiculo);
       }
-      alert("Veiculo cadastrada com Sucesso");
+      alert("Veiculo cadastrado com Sucesso");
+      history.push("/veiculos")
     } catch (e) {
       alert(e?.message);
     } finally {
@@ -114,15 +119,6 @@ export default function VeiculosForm({ veiculo, handleChange}){
           required
         />
       </Col>
-      <Col xs={1}>
-        <FormInput
-          label="Modelo"
-          onchange={handleChange}
-          name="anomodVeiculo"
-          values={veiculo}
-          required
-        />
-      </Col>
       <Col xs={3}>
         <FormInput
           label="Chassi"
@@ -169,6 +165,18 @@ export default function VeiculosForm({ veiculo, handleChange}){
           name="cambioVeiculo"
           values={veiculo}
           required
+        />
+      </Col>
+    </Row>
+    <Row>
+      <Col xs={2}>
+        <FormInput
+          label="Valor"
+          onchange={handleChange}
+          name="valorVeiculo"
+          values={veiculo}
+          required
+          type='number'
         />
       </Col>
     </Row>

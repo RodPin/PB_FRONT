@@ -9,12 +9,18 @@ function Lojas({ history }) {
 
   return (
     <PageLoader loading={isLoading}>
+      <h3> Lojas</h3>
+      <hr />
       <Table striped>
         <thead>
           <tr>
             <th>Id</th>
             <th>Nome da loja</th>
             <th>CNPJ</th>
+            <th>Numero Usuarios</th>
+            <th>Veiculos</th>
+            <th>Vendas</th>
+            <th>Saldo</th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +32,10 @@ function Lojas({ history }) {
               <td>{loja.idLoja}</td>
               <td>{loja.nomeLoja}</td>
               <td>{loja.cnpjLoja}</td>
+              <td>{loja.qtdUsuarios}</td>
+              <td>{loja.qtdVeiculos}</td>
+              <td>{loja.qtdCompras}</td>
+              <td style={{color: loja.saldo === 0 ? "black" : loja.saldo > 0 ? 'green':"red"}}>{loja.saldo}</td>
             </tr>
           ))}
         </tbody>

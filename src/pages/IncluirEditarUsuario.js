@@ -7,11 +7,13 @@ import useQueryLojas from "../hooks/useQuery/useQueryLojas";
 import { createUsuario } from "../services/usuarioService";
 import { useParams } from "react-router-dom";
 import PageLoader from "../components/PageLoader";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function IncluirEditarUsuario() {
   const { idUsuario } = useParams();
   const [loading, setLoading] = useState(!!idUsuario);
   const formRef = useRef(null);
+  const history = useHistory();
 
   const { data: lojas } = useQueryLojas();
   const [usuario, setUsuario] = useState({});
@@ -30,6 +32,7 @@ export default function IncluirEditarUsuario() {
         //await editLoja(usuario);
       }
       alert("Usuario cadastrado com sucesso !");
+      history.push("/usuarios")
       formRef.current.reset();
     } catch (e) {
       alert(e?.message);

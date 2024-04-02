@@ -7,10 +7,11 @@ import {
   getPessoaCpfCnpj,
 } from "../../services/pessoaService";
 import SCVButton from '../SCVButton';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function PessoasForm({ isEnvelope, pessoa , handleChange, setPessoa}){
   const [ cpfCnpjExists, setCpfCnpjExists ] = useState(null);
-
+  const history = useHistory();
   async function submit(e) {
     e.preventDefault();
     // setLoading(true);
@@ -18,6 +19,7 @@ export default function PessoasForm({ isEnvelope, pessoa , handleChange, setPess
       if (!pessoa.idPessoa) {
         await createPessoa(pessoa);
         alert("Pessoa cadastrada com Sucesso");
+        history.push("/pessoas")
       } else {
         await editPessoa(pessoa);
         alert("Pessoa editada com Sucesso");

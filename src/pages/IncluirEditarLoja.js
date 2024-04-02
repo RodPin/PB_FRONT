@@ -4,10 +4,13 @@ import { useParams } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import PageLoader from "../components/PageLoader";
 import { editLoja, getLoja, createLoja } from "../services/lojaService";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function IncluirEditarLoja() {
   const { idLoja } = useParams();
   const [loja, setLoja] = useState({});
+  const history = useHistory();
+
   const [loading, setLoading] = useState(!!idLoja);
 
   useEffect(() => {
@@ -34,6 +37,7 @@ export default function IncluirEditarLoja() {
         await editLoja(loja);
       }
       alert("Loja cadastrada com Sucesso");
+      history.push("/lojas")
     } catch (e) {
       alert(e?.message);
     } finally {

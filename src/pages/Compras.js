@@ -9,6 +9,8 @@ function Compras({ history }) {
 
   return (
     <PageLoader loading={isLoading}>
+      <h3> Vendas</h3>
+      <hr />
       <Table striped>
         <thead>
           <tr>
@@ -19,8 +21,6 @@ function Compras({ history }) {
             <th>Valor</th>
           </tr>
         </thead>
-
-        {console.log("compras",compras)}
         <tbody>
           {compras?.map((compra) => (
             <tr
@@ -45,7 +45,7 @@ function Compras({ history }) {
         type="submit"
         onClick={() => history.push("/editar-compra")}
       >
-        Incluir Nova Compra
+        Incluir Nova Venda
       </Button>
     </PageLoader>
   );

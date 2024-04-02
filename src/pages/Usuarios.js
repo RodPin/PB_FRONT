@@ -8,6 +8,8 @@ function Usuarios({ history }) {
 
   return (
     <PageLoader loading={isLoading}>
+      <h3> Usuarios</h3>
+      <hr />
       <Table striped>
         <thead>
           <tr>

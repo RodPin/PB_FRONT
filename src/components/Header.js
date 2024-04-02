@@ -68,7 +68,7 @@ function Header() {
                       Cadastrar Veiculos
                     </NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/editar-compra">
-                      Cadastrar Compra
+                      Cadastrar Venda
                     </NavDropdown.Item>
                   </>
                 )}
@@ -94,7 +94,7 @@ function Header() {
                 </NavDropdown.Item>
 
                 <NavDropdown.Item as={Link} to="/compras">
-                  Listar Compras
+                  Listar Vendas
                 </NavDropdown.Item>
 
                 {isAdmin ? (

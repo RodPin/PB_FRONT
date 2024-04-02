@@ -5,10 +5,12 @@ import { editCompra, createCompra } from "../../services/compraService";
 import Select from "../Select";
 import useQueryVeiculos from "../../hooks/useQuery/useQueryVeiculos";
 import useQueryPessoas from "../../hooks/useQuery/useQueryPessoas";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function ComprasForm({ compra, handleChange }) {
   const { data: veiculos } = useQueryVeiculos();
   const { data: pessoas } = useQueryPessoas();
+  const history = useHistory();
 
   async function submit(e) {
     e.preventDefault();
@@ -19,7 +21,8 @@ export default function ComprasForm({ compra, handleChange }) {
       } else {
         await editCompra(compra);
       }
-      alert("compra cadastrada com Sucesso");
+      alert("Venda cadastrada com Sucesso");
+      history.push("/compras")
     } catch (e) {
         console.log("e",e)
       alert(e.message);
@@ -30,7 +33,7 @@ export default function ComprasForm({ compra, handleChange }) {
 
   return (
     <Form onSubmit={submit}>
-      <h3>Cadastrar Compra</h3>
+      <h3>Cadastrar Venda</h3>
       <hr />
 
       <Row>
@@ -55,7 +58,7 @@ export default function ComprasForm({ compra, handleChange }) {
           </FormLabel>
 
           <Select
-            data={veiculos}
+            data={veiculos?.filter(veiculo => !veiculo.vendido)}
             name="idVeiculo"
             labelKey="modeloVeiculo"
             onChange={handleChange}
@@ -96,7 +99,7 @@ export default function ComprasForm({ compra, handleChange }) {
 
       <Button variant="primary" type="submit">
         {compra?.idCompra ? "Editar " : "Incluir "}
-        Compra
+        Venda
       </Button>
     </Form>
   );
