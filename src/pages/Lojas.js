@@ -35,7 +35,7 @@ function Lojas({ history }) {
               <td>{loja.qtdUsuarios}</td>
               <td>{loja.qtdVeiculos}</td>
               <td>{loja.qtdCompras}</td>
-              <td style={{color: loja.saldo === 0 ? "black" : loja.saldo > 0 ? 'green':"red"}}>{loja.saldo}</td>
+              <td style={{color: loja.saldo === 0 ? "black" : loja.saldo > 0 ? 'green':"red"}}>{loja.saldo?.toLocaleString()}</td>
             </tr>
           ))}
         </tbody>
