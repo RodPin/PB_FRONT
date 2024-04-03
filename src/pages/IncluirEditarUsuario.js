@@ -33,8 +33,8 @@ export default function IncluirEditarUsuario() {
         //await editLoja(usuario);
       }
       toast.success("Usuario cadastrado com sucesso !");
+      formRef.current?.reset();
       history.push("/usuarios")
-      formRef.current.reset();
     } catch (e) {
       toast.error(e?.message);
     } finally {
