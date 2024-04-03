@@ -24,7 +24,7 @@ export default function PessoasForm({ isEnvelope, pessoa , handleChange, setPess
         history.push("/pessoas")
       } else {
         await editPessoa(pessoa);
-        toast.error("Pessoa editada com Sucesso");
+        toast.success("Pessoa editada com Sucesso");
       }
     } catch (e) {
       toast.error(e?.message);

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { doLogin } from "../services/authService";
 import { getTokenLocalStorage, setTokenLocalStorage } from "../localstorage";
-import logo from "../logo.svg";
 import "../App.css";
 import { toast } from "react-toastify";
 function App({ history }) {
