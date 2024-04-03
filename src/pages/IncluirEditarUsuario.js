@@ -8,6 +8,7 @@ import { createUsuario } from "../services/usuarioService";
 import { useParams } from "react-router-dom";
 import PageLoader from "../components/PageLoader";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { toast } from "react-toastify";
 
 export default function IncluirEditarUsuario() {
   const { idUsuario } = useParams();
@@ -25,17 +26,17 @@ export default function IncluirEditarUsuario() {
     try {
       if (!usuario.idUsuario) {
         if (usuario.senhaUsuario !== usuario.confirmacaoSenhaUsuario) {
-          return alert("Senha nao sao iguais");
+          return toast.error("Senha nao sao iguais");
         }
         await createUsuario(usuario);
       } else {
         //await editLoja(usuario);
       }
-      alert("Usuario cadastrado com sucesso !");
+      toast.success("Usuario cadastrado com sucesso !");
       history.push("/usuarios")
       formRef.current.reset();
     } catch (e) {
-      alert(e?.message);
+      toast.error(e?.message);
     } finally {
       setLoading(false);
     }

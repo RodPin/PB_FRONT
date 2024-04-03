@@ -15,7 +15,6 @@ import InjectAxiosInterceptors from "./components/InjectAxiosInterceptors";
 import IncluirEditarUsuario from "./pages/IncluirEditarUsuario";
 import IncluirEditarPessoa from "./pages/IncluirEditarPessoa";
 import IncluirEditarVeiculo from "./pages/IncluirEditarVeiculo";
-import IncluirEditarEnvelope from "./pages/IncluirEditarEnvelope";
 import IncluirEditarCompra from "./pages/IncluirEditarCompra";
 
 function routes() {
@@ -44,10 +43,6 @@ function routes() {
       <PrivateRoute
         path="/editar-veiculo/:idVeiculo?"
         component={IncluirEditarVeiculo}
-      />
-      <PrivateRoute
-        path="/editar-envelope/:idEnvelope?"
-        component={IncluirEditarEnvelope}
       />
       <PrivateRoute
         path="/editar-compra/:idCompra?"

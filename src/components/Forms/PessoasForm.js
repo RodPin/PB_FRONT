@@ -8,6 +8,7 @@ import {
 } from "../../services/pessoaService";
 import SCVButton from '../SCVButton';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { toast } from "react-toastify";
 
 export default function PessoasForm({ isEnvelope, pessoa , handleChange, setPessoa}){
   const [ cpfCnpjExists, setCpfCnpjExists ] = useState(null);
@@ -18,14 +19,15 @@ export default function PessoasForm({ isEnvelope, pessoa , handleChange, setPess
     try {
       if (!pessoa.idPessoa) {
         await createPessoa(pessoa);
-        alert("Pessoa cadastrada com Sucesso");
+
+        toast.success("Pessoa cadastrada com Sucesso");
         history.push("/pessoas")
       } else {
         await editPessoa(pessoa);
-        alert("Pessoa editada com Sucesso");
+        toast.error("Pessoa editada com Sucesso");
       }
     } catch (e) {
-      alert(e?.message);
+      toast.error(e?.message);
     } finally {
     //   setLoading(false);
     }
@@ -277,7 +279,7 @@ function CpfCnpjInput({handleChange, pessoa, setPessoa, setCpfCnpjExists}){
     function submitSearchCpfCnpj(e){
       e.preventDefault();
       if(!pessoa.cpfCnpjPessoa) {
-        return alert("CPF/CNPJ vazio")
+        return toast.error("CPF/CNPJ vazio")
       };
       
       setLoading(true)
@@ -285,7 +287,7 @@ function CpfCnpjInput({handleChange, pessoa, setPessoa, setCpfCnpjExists}){
         setPessoa(rPessoa);
         setCpfCnpjExists(true);
       }).catch(e=> {
-        alert(e.message)
+        toast.error(e.message)
         if(e.status === 404){
           setCpfCnpjExists(false);
         }

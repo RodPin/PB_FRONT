@@ -5,6 +5,7 @@ import FormInput from "../components/FormInput";
 import PageLoader from "../components/PageLoader";
 import { editLoja, getLoja, createLoja } from "../services/lojaService";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { toast } from "react-toastify";
 
 export default function IncluirEditarLoja() {
   const { idLoja } = useParams();
@@ -36,10 +37,11 @@ export default function IncluirEditarLoja() {
       } else {
         await editLoja(loja);
       }
-      alert("Loja cadastrada com Sucesso");
+      toast.success("Loja cadastrada com Sucesso");
       history.push("/lojas")
     } catch (e) {
-      alert(e?.message);
+      console.log('toast',toast)
+      toast.error(e?.message);
     } finally {
       setLoading(false);
     }

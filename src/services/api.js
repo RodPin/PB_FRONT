@@ -1,6 +1,7 @@
 import axios from "axios";
 import { baseUrl } from "../appConfig.js";
 import { getTokenLocalStorage } from "../localstorage/index.js";
+import { toast } from "react-toastify";
 
 const api = axios.create({
   baseURL: baseUrl,
@@ -9,7 +10,7 @@ const api = axios.create({
   },
 });
 
-const setupInterceptors = (logout) => {
+const setupInterceptors = (logout, history) => {
   api.interceptors.request.use(function (config) {
     let xToken = getTokenLocalStorage();
     if (xToken) {
@@ -34,7 +35,8 @@ const setupInterceptors = (logout) => {
         console.log("Token expirado");
       }
       if (xApiError?.status === 403) {
-        alert("Usuario nao tem permissao");
+        toast.error("Usuario nao tem permissao");
+        history.push('/veiculos');
       }
       return Promise.reject(xApiError);
     }

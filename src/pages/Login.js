@@ -3,6 +3,7 @@ import { doLogin } from "../services/authService";
 import { getTokenLocalStorage, setTokenLocalStorage } from "../localstorage";
 import logo from "../logo.svg";
 import "../App.css";
+import { toast } from "react-toastify";
 function App({ history }) {
   const [login, setLogin] = useState("admin@admin.com");
   const [senha, setSenha] = useState("");
@@ -21,7 +22,7 @@ function App({ history }) {
         setTokenLocalStorage(resposta.token);
         history.push("/veiculos");
       })
-      .catch((e) => alert(e.message));
+      .catch((e) => toast.error(e.message));
   }
 
   return (

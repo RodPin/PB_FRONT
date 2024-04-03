@@ -6,6 +6,7 @@ import FormInput from "../components/FormInput";
 import { editLoja, getLoja, createLoja } from "../services/lojaService";
 import lojaSchema from "../utils/validators/lojaSchema";
 import { BigTriangle } from "../components/PageLoader";
+import { toast } from "react-toastify";
 
 export default function IncluirEditarLoja() {
   const { idLoja } = useParams();
@@ -34,9 +35,9 @@ export default function IncluirEditarLoja() {
       } else {
         await editLoja(formLojaData);
       }
-      alert("Sucesso");
+      toast.success("Sucesso");
     } catch (e) {
-      alert(e?.message);
+      toast.error(e?.message);
     }
   }
 

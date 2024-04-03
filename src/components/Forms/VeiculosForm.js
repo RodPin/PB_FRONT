@@ -7,6 +7,7 @@ import {
 } from "../../services/veiculoService";
 import SCVButton from '../SCVButton';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { toast } from "react-toastify";
 
 export default function VeiculosForm({ veiculo, handleChange}){
   const [ renavamExists, setRenavamExists ] = useState(null);
@@ -23,10 +24,10 @@ export default function VeiculosForm({ veiculo, handleChange}){
       } else {
         await editVeiculo(veiculo);
       }
-      alert("Veiculo cadastrado com Sucesso");
+      toast.success("Veiculo cadastrado com Sucesso");
       history.push("/veiculos")
     } catch (e) {
-      alert(e?.message);
+      toast.error(e?.message);
     } finally {
       // setLoading(false);
     }

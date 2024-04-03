@@ -6,6 +6,7 @@ import Select from "../Select";
 import useQueryVeiculos from "../../hooks/useQuery/useQueryVeiculos";
 import useQueryPessoas from "../../hooks/useQuery/useQueryPessoas";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { toast } from "react-toastify";
 
 export default function ComprasForm({ compra, handleChange }) {
   const { data: veiculos } = useQueryVeiculos();
@@ -21,11 +22,11 @@ export default function ComprasForm({ compra, handleChange }) {
       } else {
         await editCompra(compra);
       }
-      alert("Venda cadastrada com Sucesso");
+      toast.success("Venda cadastrada com Sucesso");
       history.push("/compras")
     } catch (e) {
         console.log("e",e)
-      alert(e.message);
+      toast.error(e.message);
     } finally {
       // setLoading(false);
     }

@@ -13,7 +13,7 @@ export default function InjectAxiosInterceptors() {
         
     
     useEffect(() => {
-      setupInterceptors(handleLogout);
+      setupInterceptors(handleLogout, history);
     }, [history]);
   
     // not rendering anything

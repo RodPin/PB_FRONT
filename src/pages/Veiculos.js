@@ -19,14 +19,13 @@ function Veiculos({ history }) {
   });
 
 
-  console.log('usuarioxxxs',usuario)
   let statusCor = (lucro) =>
     lucro === 0 ? "black" : lucro > 0 ? "green" : "red";
   return (
     <PageLoader loading={isLoading}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <h3> Veiculos</h3>
-        {usuario.nivelUsuario !== "M" && (
+        {usuario?.nivelUsuario !== "M" && (
           <h3>
             Saldo:{" "}
             <h3

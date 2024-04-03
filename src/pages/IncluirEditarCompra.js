@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import PageLoader from "../components/PageLoader";
 import { getCompra } from "../services/compraService";
 import ComprasForm from '../components/Forms/ComprasForm';
+import { toast } from "react-toastify";
 
 export default function IncluirEditarVeiculo() {
   const [compra, setCompra] = useState({});
@@ -17,7 +18,7 @@ export default function IncluirEditarVeiculo() {
           console.log("rCompra",rCompra)
           setCompra(rCompra);
         })
-        .catch((e) => alert(e.message))
+        .catch((e) => toast.error(e.message))
         .finally(() => {
           setLoading(false);
         });

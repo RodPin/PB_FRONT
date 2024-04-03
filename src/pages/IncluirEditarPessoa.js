@@ -5,6 +5,7 @@ import PessoasForm from "../components/Forms/PessoasForm";
 import FormInput from "../components/FormInput";
 import PageLoader from "../components/PageLoader";
 import { editPessoa, getPessoa, createPessoa } from "../services/pessoaService";
+import { toast } from "react-toastify";
 
 export default function IncluirEditarPessoa() {
   const { idPessoa } = useParams();
@@ -35,13 +36,13 @@ export default function IncluirEditarPessoa() {
     try {
       if (!pessoa.idPessoa) {
         await createPessoa(pessoa);
-        alert("Pessoa cadastrada com Sucesso");
+        toast.success("Pessoa cadastrada com Sucesso");
       } else {
         await editPessoa(pessoa);
-        alert("Pessoa editada com Sucesso");
+        toast.success("Pessoa editada com Sucesso");
       }
     } catch (e) {
-      alert(e?.message);
+      toast.error(e?.message);
     } finally {
       setLoading(false);
     }
